@@ -1,0 +1,9 @@
+async function asyncGenerator() {
+  const data = [Promise.resolve(1), Promise.resolve(2), Promise.resolve(3)];
+  for await (let val of data) {
+    console.log(val);
+  }
+}
+
+asyncGenerator(); 
+

@@ -1,0 +1,6 @@
+const car={};
+
+car.model="Toyota";
+car.year=2020;
+
+console.log(car);
