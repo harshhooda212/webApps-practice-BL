@@ -1,0 +1,1 @@
+{"version":3,"file":"interfaceGenerics.js","sourceRoot":"","sources":["../src/interfaceGenerics.ts"],"names":[],"mappings":"AAKA,MAAM,aAAa,GAAiB;IAChC,IAAI,EAAE,0BAA0B;IAChC,KAAK,EAAE,IAAI;CACd,CAAA;AACD,MAAM,aAAa,GAAoB;IACnC,IAAI,EAAE,CAAC;IACP,KAAK,EAAE,kBAAkB;CAC5B,CAAA;AAED,OAAO,CAAC,GAAG,CAAC,aAAa,CAAC,CAAC;AAC3B,OAAO,CAAC,GAAG,CAAC,aAAa,CAAC,CAAC"}
