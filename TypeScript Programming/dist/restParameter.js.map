@@ -1,0 +1,1 @@
+{"version":3,"file":"restParameter.js","sourceRoot":"","sources":["../src/restParameter.ts"],"names":[],"mappings":"AAAA,SAAS,QAAQ,CAAC,QAAgB,EAAE,GAAG,KAAe;IAClD,OAAO,GAAG,QAAQ,IAAI,KAAK,CAAC,IAAI,CAAC,GAAG,CAAC,EAAE,CAAC;AAC5C,CAAC;AACD,OAAO,CAAC,GAAG,CAAC,QAAQ,CAAC,OAAO,EAAC,OAAO,EAAC,MAAM,CAAC,CAAC,CAAC"}

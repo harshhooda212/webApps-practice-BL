@@ -1,0 +1,1 @@
+{"version":3,"file":"typeNarrowing.js","sourceRoot":"","sources":["../src/typeNarrowing.ts"],"names":[],"mappings":"AAAA,SAAS,WAAW,CAAC,KAAsB;IACvC,IAAG,OAAO,KAAK,KAAK,QAAQ,EAAC,CAAC;QAC1B,OAAO,CAAC,GAAG,CAAC,kBAAkB,KAAK,CAAC,MAAM,EAAE,CAAC,CAAC;IAClD,CAAC;SAAK,CAAC;QACH,OAAO,CAAC,GAAG,CAAC,KAAK,CAAC,CAAC;IACvB,CAAC;AACL,CAAC"}

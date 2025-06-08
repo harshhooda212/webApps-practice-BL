@@ -1,0 +1,1 @@
+{"version":3,"file":"readOnly.js","sourceRoot":"","sources":["../src/readOnly.ts"],"names":[],"mappings":"AAKA,MAAM,GAAG,GAAY;IACnB,KAAK,EAAE,OAAO;IACd,GAAG,EAAE,EAAE;IACP,SAAS,EAAE,IAAI;CAChB,CAAC;AAEF,OAAO,CAAC,GAAG,CAAC,GAAG,GAAG,CAAC,KAAK,OAAO,GAAG,CAAC,GAAG,wBAAwB,GAAG,CAAC,SAAS,EAAE,CAAC,CAAC"}
