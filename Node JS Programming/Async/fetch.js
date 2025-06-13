@@ -11,3 +11,34 @@ async function fetchD(){
     console.error('Fetch error:', error);
     }
 }
+
+async function fetchD(){
+    try{
+        const response= await fetch();
+        if(!response.ok){
+            throw new Error();
+        }
+        const data = await response.json();
+        console.log(data);
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+async function fetch(){
+    try{
+        const response = await fetch();
+        if(!response.ok){
+            throw new Error();
+        }
+        const data = await response.json();
+        console.log(data);
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Details Survey</title>
+</head>
+<body>
+  <h1>Personal Details Survey</h1>
+
+  <form action="/submit" method="post">
+    <!-- Name -->
+    <label for="name">Full Name:</label><br />
+    <input type="text" id="name" name="name" required /><br /><br />
+
+    <!-- Age -->
+    <label for="age">Age:</label><br />
+    <input type="number" id="age" name="age" min="0" max="120" required /><br /><br />
+
+    <!-- Gender -->
+    <label>Gender:</label><br />
+    <input type="radio" id="male" name="gender" value="Male" />
+    <label for="male">Male</label><br />
+    <input type="radio" id="female" name="gender" value="Female" />
+    <label for="female">Female</label><br />
+    <input type="radio" id="other" name="gender" value="Other" />
+    <label for="other">Other</label><br /><br />
+
+    <!-- Email -->
+    <label for="email">Email Address:</label><br />
+    <input type="email" id="email" name="email" required /><br /><br />
+
+    <!-- Phone -->
+    <label for="phone">Phone Number:</label><br />
+    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="10-digit number" /><br /><br />
+
+    <!-- Country -->
+    <label for="country">Country:</label><br />
+    <select id="country" name="country" required>
+      <option value="">--Select--</option>
+      <option value="India">India</option>
+      <option value="USA">USA</option>
+      <option value="UK">UK</option>
+      <option value="Other">Other</option>
+    </select><br /><br />
+
+    <!-- Interests -->
+    <label>What are your interests?</label><br />
+    <input type="checkbox" name="interests" value="Music" /> Music<br />
+    <input type="checkbox" name="interests" value="Sports" /> Sports<br />
+    <input type="checkbox" name="interests" value="Reading" /> Reading<br />
+    <input type="checkbox" name="interests" value="Travel" /> Travel<br /><br />
+
+    <!-- Message -->
+    <label for="message">Anything else you'd like to share?</label><br />
+    <textarea id="message" name="message" rows="4" cols="50"></textarea><br /><br />
+
+    <!-- Submit -->
+    <input type="submit" value="Submit Survey" />
+  </form>
+</body>
+</html>
