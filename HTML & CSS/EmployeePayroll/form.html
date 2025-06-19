@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Payroll Form</title>
+  <link rel="stylesheet" href="form.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+  $(function () {
+    for (let i = 1; i <= 31; i++) $('#day').append(`<option value="${i}">${i}</option>`);
+    for (let i = 1; i <= 12; i++) $('#month').append(`<option value="${i}">${i}</option>`);
+    for (let i = 2000; i <= 2030; i++) $('#year').append(`<option value="${i}">${i}</option>`);
+
+    $('#payrollForm').on('submit', function (e) {
+      e.preventDefault();
+
+      const name = $('#name').val();
+      const profile = $('input[name="profile"]:checked').val();
+      const gender = $('input[name="gender"]:checked').val();
+      const departments = [];
+      $('input[name="department"]:checked').each(function () {
+        departments.push($(this).val());
+      });
+
+      const salary = $('#salary').val();
+      const startDate = `${$('#day').val()}-${$('#month').val()}-${$('#year').val()}`;
+      const notes = $('#notes').val();
+
+      const formData = {
+        name,
+        profile,
+        gender,
+        departments,
+        salary,
+        startDate,
+        notes
+      };
+
+      console.log('Form Data:', formData);
+    });
+  });
+</script>
+
+</head>
+<body>
+  <div class="form-container">
+    <h2>Employee Payroll Form</h2>
+   <form id="payrollForm">
+  <label>Name</label>
+  <input type="text" id="name" placeholder="Enter name">
+
+  <label>Profile image</label>
+  <div class="profile-images">
+    <label><input type="radio" name="profile" value="img1"><img src="D:\WebApps-js-BL\webApps-practice-BL\HTML & CSS\PASSPORT SIZE-modified.png" /></label>
+    <label><input type="radio" name="profile" value="img2"><img src="D:\WebApps-js-BL\webApps-practice-BL\HTML & CSS\PASSPORT SIZE-modified.png" /></label>
+
+  </div>
+
+  <label>Gender</label>
+  <label><input type="radio" name="gender" value="Male"> Male</label>
+  <label><input type="radio" name="gender" value="Female"> Female</label>
+
+  <label>Department</label>
+  <div class="departments">
+    <label><input type="checkbox" name="department" value="HR"> HR</label>
+    <label><input type="checkbox" name="department" value="Sales"> Sales</label>
+    <label><input type="checkbox" name="department" value="Finance"> Finance</label>
+    <label><input type="checkbox" name="department" value="Engineer"> Engineer</label>
+    <label><input type="checkbox" name="department" value="Others"> Others</label>
+  </div>
+
+  <label>Salary</label>
+  <select id="salary">
+    <option value="">Select Salary</option>
+    <option value="10000">10,000</option>
+    <option value="20000">20,000</option>
+    <option value="30000">30,000</option>
+  </select>
+
+  <label>Start Date</label>
+  <div class="date-select">
+    <select id="day"><option value="">Day</option></select>
+    <select id="month"><option value="">Month</option></select>
+    <select id="year"><option value="">Year</option></select>
+  </div>
+
+  <label>Notes</label>
+  <textarea id="notes" rows="3"></textarea>
+
+  <div class="buttons">
+    <button type="button" id="cancel">Cancel</button>
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>
+  </div>
+</body>
+</html>

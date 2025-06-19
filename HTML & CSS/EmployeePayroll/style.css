@@ -1,22 +1,22 @@
- * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', sans-serif;
-} 
+}
 
 body {
-  background: #3b434b;
+  background: #f4f6f8;
 }
 
 header {
   background: white;
-   padding: 20px;
+  padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
- display: flex;
+  display: flex;
   align-items: center;
   font-size: 24px;
   font-weight: bold;

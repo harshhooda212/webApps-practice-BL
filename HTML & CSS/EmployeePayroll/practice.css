@@ -1,0 +1,106 @@
+
+body {
+  background: #fff;
+  
+}
+
+.container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.left,
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.box {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex
+  
+}
+
+.box1 {
+  background: red;
+  height: 300px;
+}
+
+.box2 {
+  background: #ff9800;
+  height: 140px;
+
+}
+
+.box3 {
+  background: #9c27b0;
+  flex: 1;
+  height: 100px;
+  
+}
+
+.box4 {
+  background: #607d8b;
+  flex: 1;
+  height: 100px;
+  
+}
+
+.box5 {
+  background: #616161;
+  flex: 1;
+  height: 100px;
+  
+}
+
+.box6 {
+  background: #4caf50;
+  flex: 1;
+  height: 100px;
+}
+
+.box7 {
+  background: #2196f3;
+  height: 150px;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .left,.right,.row,.column{
+    flex-direction:colum;
+    display:contents;
+  }
+
+
+  .box1{order:1;}
+  .box2{order:2;}
+  .box3{order:3;}
+  .box4{order:4;}
+  .box5{order:5;}
+  .box6{order:6;}
+  .box7{order:7;}
+
+
+  
+}
