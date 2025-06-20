@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Page</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <h2>Enter Your Details</h2>
+  <form id="myForm">
+    <label>Name:</label>
+    <input type="text" id="name"><br><br>
+
+    <label>Email:</label>
+    <input type="email" id="email"><br><br>
+
+    <label>Age:</label>
+    <input type="number" id="age"><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    $(document).ready(function () {
+      $('#myForm').on('submit', function (event) {
+        event.preventDefault();
+
+        const userData = {
+          name: $('#name').val(),
+          email: $('#email').val(),
+          age: $('#age').val()
+        };
+
+        // Save to localStorage as JSON string
+        localStorage.setItem("formData", JSON.stringify(userData));
+
+        // Redirect to another page
+        window.location.href = "display.html";
+      });
+    });
+  </script>
+
+</body>
+</html>

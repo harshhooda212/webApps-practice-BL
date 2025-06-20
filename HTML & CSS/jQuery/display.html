@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Display Page</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <h2>Submitted Data:</h2>
+  <div id="output"></div>
+
+  <script>
+    $(document).ready(function () {
+      const data = localStorage.getItem("formData");
+
+      if (data) {
+        const obj = JSON.parse(data); // convert JSON string to JS object
+
+        $('#output').html(`
+          <p><strong>Name:</strong> ${obj.name}</p>
+          <p><strong>Email:</strong> ${obj.email}</p>
+          <p><strong>Age:</strong> ${obj.age}</p>
+        `);
+      } else {
+        $('#output').text("No data found.");
+      }
+    });
+  </script>
+
+</body>
+</html>

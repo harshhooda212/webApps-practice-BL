@@ -5,13 +5,33 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script>
             $(document).ready(function(){
-                $("p").click(function())
-            })
+                $("p").dblclick(function(){
+                    $(this).hide();
+                });
+            });
+
+            $(document).ready(function(){
+                $(".hi").mouseenter(function(){
+                    $(this).hide();
+                });
+            });
+            $(document).ready(function(){
+                $(".hi").mouseleave(function(){
+                    $(this).show();
+                });
+            });
+            $(document).ready(function(){
+                $(".hi").hover(function(){
+                    alert("You entered p1!");
+                });
+            });
         </script>
     </head>
     <body>
         
         <p>If you click on me i will disappear.</p>
         <p>Click me too!</p>
+        <p class="hi">Welcome To Mission</p>
+        <p class="he">Namaste!!</p>
     </body>
 </html>

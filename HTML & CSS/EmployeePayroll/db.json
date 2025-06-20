@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": "70f1",
+      "name": "Mayank Mani",
+      "gender": "Male",
+      "departments": [
+        "HR"
+      ],
+      "salary": "20000",
+      "startDate": "3/3/2003",
+      "profile": "https://img.icons8.com/color/48/000000/user.png",
+      "notes": ";d."
+    }
+  ]
+}

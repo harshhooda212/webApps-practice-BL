@@ -1,72 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Employee Payroll Form</title>
-  <link rel="stylesheet" href="form.css">
+<html>
+    <head>
+        <title>FORM</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="project2form.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <script>
-    $(document).ready(function () {
-      // Populate date dropdowns
-      for (let i = 1; i <= 31; i++) $('#day').append(`<option value="${i}">${i}</option>`);
-      for (let i = 1; i <= 12; i++) $('#month').append(`<option value="${i}">${i}</option>`);
-      for (let i = 2000; i <= 2025; i++) $('#year').append(`<option value="${i}">${i}</option>`);
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <img src="D:\WebApps-js-BL\webApps-practice-BL\HTML & CSS\EmployeePayroll\SIGNATURE.jpeg" alt="this is logo" width="50px" height="50px">
+                <span>MISSION <strong>X7</strong></span>
+            </div>
+        </header>
+        <div class="form-container">
+            <h2>Agent Form</h2>
+            <form id="agent-form">
+                <label for="name">NAME:</label>
+                <input type="text" placeholder="Name" required id="name">
 
-      // Submit form
-      $('#payrollForm').on('submit', function (e) {
-        e.preventDefault();
-
-        const departments = [];
-        $('input[name="department"]:checked').each(function () {
-          departments.push($(this).val());
-        });
-
-        const day = $('#day').val();
-        const month = $('#month').val();
-        const year = $('#year').val();
-        const startDate = `${day}/${month}/${year}`;
-
-        const userData = {
-          name: $('#name').val(),
-          gender: $('input[name="gender"]:checked').val(),
-          departments: departments,
-          salary: $('#salary').val(),
-          startDate: startDate,
-          profile: $('input[name="profile"]:checked').val(),
-          notes: $('#notes').val()
-        };
-
-        $.ajax({
-          url: "http://localhost:3000/users",
-          method: "POST",
-          data: JSON.stringify(userData),
-          contentType: "application/json",
-          success: function () {
-            alert("Employee added!");
-            window.location.href = "index.html";
-          },
-          error: function () {
-            alert("Error saving data!");
-          }
-        });
-      });
-    });
-  </script>
-</head>
-<body>
-  <div class="form-container">
-    <h2>Employee Payroll Form</h2>
-    <form id="payrollForm">
-      <label>Name</label>
-      <input type="text" id="name" placeholder="Enter name" required>
-
-      <label>Profile image</label>
+                <label>Profile image</label>
       <div class="profile-images">
         <label><input type="radio" name="profile" value="https://img.icons8.com/color/48/000000/user.png"><img src="https://img.icons8.com/color/48/000000/user.png"/></label>
         <label><input type="radio" name="profile" value="https://img.icons8.com/fluency/48/administrator-male.png"><img src="https://img.icons8.com/fluency/48/administrator-male.png"/></label>
       </div>
-
       <label>Gender</label>
       <label><input type="radio" name="gender" value="Male"> Male</label>
       <label><input type="radio" name="gender" value="Female"> Female</label>
@@ -103,7 +61,7 @@
         <button type="submit">Submit</button>
         <button type="reset">Reset</button>
       </div>
-    </form>
-  </div>
-</body>
+            </form>
+        </div>
+    </body>
 </html>
