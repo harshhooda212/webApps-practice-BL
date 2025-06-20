@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": "f1f4",
+      "profile": "https://img.icons8.com/fluency/48/administrator-male.png",
+      "departments": [
+        "Finance"
+      ],
+      "startDate": "//"
+    },
+    {
+      "id": "73ba",
+      "profile": "https://img.icons8.com/fluency/48/administrator-male.png",
+      "gender": "Male",
+      "departments": [
+        "HR"
+      ],
+      "startDate": "//"
+    },
+    {
+      "id": "dce4",
+      "profile": "https://img.icons8.com/color/48/000000/user.png",
+      "name": "Harsh Hooda",
+      "gender": "Male",
+      "departments": [
+        "HR"
+      ],
+      "startDate": "//"
+    }
+  ]
+}

@@ -6,19 +6,61 @@
         <link rel="stylesheet" href="project2form.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+  <script>
+    $(document).ready(function(){
+      $('#agent-form').on('submit',function(e){
+        e.preventDefault();
+
+         const departments = [];
+        $('input[name="department"]:checked').each(function () {
+          departments.push($(this).val());
+        });
+
+        const day = $('#day').val();
+        const month = $('#month').val();
+        const year = $('#year').val();
+        const startDate = `${day}/${month}/${year}`;
+
+
+
+        const user={
+          profile: $('input[name="profile"]:checked').val(),
+          name: $('#name').val(),
+          gender: $('input[name="gender"]:checked').val(),
+          departments : departments,
+          salary: $('input[name="salary"]').val(),
+          startDate: startDate,
+          notes: $('input[name="notes"]').val(),
+        };
+        $.ajax({
+          url:'http://localhost:3000/users',
+          method: 'POST',
+          contentType:'application/json',
+          data:JSON.stringify(user),
+          success: function(){
+            alert('User saved successfully!');
+            window.location.href='project2.html';
+          },
+          error:function(){
+            alert('Error saving user.');
+          }
+        });
+      });
+    });
+  </script>
     </head>
     <body>
         <header>
-            <div class="logo">
+            <div class="logo2"  ><a href="project2.html" class="logo">
                 <img src="D:\WebApps-js-BL\webApps-practice-BL\HTML & CSS\EmployeePayroll\SIGNATURE.jpeg" alt="this is logo" width="50px" height="50px">
-                <span>MISSION <strong>X7</strong></span>
+                <span>MISSION <strong>X7</strong></span></a>
             </div>
         </header>
         <div class="form-container">
             <h2>Agent Form</h2>
             <form id="agent-form">
-                <label for="name">NAME:</label>
-                <input type="text" placeholder="Name" required id="name">
+                <label>Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter name" required>
 
                 <label>Profile image</label>
       <div class="profile-images">

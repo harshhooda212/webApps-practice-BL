@@ -11,6 +11,18 @@
       "startDate": "3/3/2003",
       "profile": "https://img.icons8.com/color/48/000000/user.png",
       "notes": ";d."
+    },
+    {
+      "id": "e794",
+      "name": "Harsh Hooda",
+      "gender": "Male",
+      "departments": [
+        "Sales"
+      ],
+      "salary": "20000",
+      "startDate": "//",
+      "profile": "https://img.icons8.com/fluency/48/administrator-male.png",
+      "notes": ""
     }
   ]
 }

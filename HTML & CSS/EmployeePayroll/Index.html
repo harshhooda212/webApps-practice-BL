@@ -20,7 +20,11 @@
       <div class="header-bar">
         <h2>Employee Details</h2>
         <div class="action-bar">
-          <input type="text" placeholder="Search..." class="search-box" />
+         <div class="search-wrapper">
+  <input type="text" placeholder="Search..." class="search-box" />
+  <span class="search-icon">🔍</span>
+</div>
+
           <a href="form.html" class="add-btn">+ Add User</a>
         </div>
       </div>
@@ -37,59 +41,73 @@
           </tr>
         </thead>
         <tbody id="employeeTableBody">
-          <!-- Fetched data will go here -->
+         
         </tbody>
       </table>
     </section>
   </main>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  $(document).ready(function () {
-    $.get("http://localhost:3000/users", function (data) {
-      const tableBody = $('tbody');
-      tableBody.empty(); // Clear existing
+   <script>
+    $(document).ready(function () {
 
-      data.forEach(user => {
-        const departments = user.departments.map(dept => `<span class="badge">${dept}</span>`).join(" ");
-        const row = `
-          <tr data-id="${user.id}">
-            <td><img src="${user.profile}" alt="" class="avatar"> ${user.name}</td>
-            <td>${user.gender}</td>
-            <td>${departments}</td>
-            <td>₹ ${user.salary}</td>
-            <td>${user.startDate}</td>
-            <td>
-              <span class="action-icon delete-btn" style="cursor:pointer;">🗑️</span>
-              <span class="action-icon">✏️</span>
-            </td>
-          </tr>
-        `;
-        tableBody.append(row);
+      $.get("http://localhost:3000/users", function (data) {
+        const tableBody = $('tbody');
+        tableBody.empty(); 
+
+        data.forEach(user => {
+          const departments = user.departments.map(dept => `<span class="badge">${dept}</span>`).join(" ");
+          const row = `
+            <tr data-id="${user.id}">
+              <td><img src="${user.profile}" alt="" class="avatar"> ${user.name}</td>
+              <td>${user.gender}</td>
+              <td>${departments}</td>
+              <td>₹ ${user.salary}</td>
+              <td>${user.startDate}</td>
+              <td>
+                <span class="action-icon delete-btn" style="cursor:pointer;">🗑️</span>
+                <span class="action-icon">✏️</span>
+              </td>
+            </tr>
+          `;
+          tableBody.append(row);
+        });
+
+        $('.delete-btn').on('click', function () {
+          const row = $(this).closest('tr');
+          const userId = row.data('id');
+
+          if (confirm("Are you sure you want to delete this user?")) {
+            $.ajax({
+              url: `http://localhost:3000/users/${userId}`,
+              method: 'DELETE',
+              success: function () {
+                alert("User deleted!");
+                row.remove();
+              },
+              error: function () {
+                alert("Failed to delete user.");
+              }
+            });
+          }
+        });
       });
 
-      // 🔴 Attach delete functionality after rows are added
-      $('.delete-btn').on('click', function () {
-        const row = $(this).closest('tr');
-        const userId = row.data('id');
+      $('.search-icon').on('click', function () {
+        const wrapper = $(this).closest('.search-wrapper');
+        wrapper.toggleClass('active');
+        if (wrapper.hasClass('active')) {
+          wrapper.find('.search-box').focus();
+        }
+      });
 
-        if (confirm("Are you sure you want to delete this user?")) {
-          $.ajax({
-            url: `http://localhost:3000/users/${userId}`,
-            method: 'DELETE',
-            success: function () {
-              alert("User deleted!");
-              row.remove(); // Remove row from table
-            },
-            error: function () {
-              alert("Failed to delete user.");
-            }
-          });
+      
+      $(document).on('click', function (e) {
+        if (!$(e.target).closest('.search-wrapper').length) {
+          $('.search-wrapper').removeClass('active');
         }
       });
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
