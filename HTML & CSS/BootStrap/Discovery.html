@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Discovery‑Style Site</title>
+  <link rel="stylesheet" href="discovery.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <style>
+    body, html { margin:0; padding:0; font-family: sans-serif; }
+    h1, h2 { color:#fff; text-align:center; }
+
+    header {
+      position: fixed; top:0; left:0; right:0;
+      display: flex; justify-content: space-between; padding:20px;
+      z-index:100; transition: background 0.3s;
+    }
+    header.transparent { background:transparent; }
+    header.solid { background:rgba(0,0,0,0.6); }
+    header nav a { color:#fff; margin:0 12px; text-decoration:none; }
+
+  
+    .hero {
+      height:100vh;
+      width:100vw; background-size:cover; background-position:center;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .hero .overlay {
+      background: rgba(0,0,0,0.4);
+      position:absolute; top:0; left:0; right:0; bottom:0;
+    }
+    .hero h1 { position:relative; font-size:3em; z-index:1; }
+
+    section.module {
+      padding:80px 20px; text-align:center;
+    }
+
+
+    .fade {
+      opacity:0; transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+    .fade.visible { opacity:1; transform: translateY(0); }
+
+    footer {
+      background:#111; color:#ddd; padding:40px 20px; text-align:center;
+    }
+  </style>
+</head>
+<body>
+
+<header class="transparent">
+  <div class="logo" style="color:#fff;">DISCOVERY</div>
+  <nav>
+    <a href="#worlds">Our Worlds</a>
+    <a href="#experiences">Experiences</a>
+    <a href="#footer">Contact</a>
+  </nav>
+</header>
+
+<div class="hero" id="hero" style="background-image:url('D:\WebApps-js-BL\webApps-practice-BL\HTML & CSS\PASSPORT SIZE-modified.png');">
+  <div class="overlay"></div>
+  <div style="position:relative; text-align:center; z-index:1;">
+    <div class="hero" id="hero" style="background-image:url('fallback-image.jpg'); position:relative;">
+  <div class="overlay"></div>
+  <video autoplay muted loop playsinline style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; z-index:0;">
+    <source src="https://player.vimeo.com/progressive_redirect/playback/769653111/rendition/1080p/file.mp4?loc=external&signature=ed68edc6f93d6322ab788f73a6c328d62ef27555627cc8b2c6a85fdaf8e4c696" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <h1 style="position:relative; z-index:1;">Discover Your World</h1>
+</div>
+
+  </div>
+</div>
+
+<section class="module fade" id="worlds">
+  <h2>Our Worlds</h2>
+</section>
+
+<section class="module fade" id="experiences">
+  <h2>Experiences</h2>
+  <p>Relax. Adventure. Connect.</p>
+</section>
+
+<footer id="footer">
+  <p>Get in touch: (480) 624‑5200 | info@discoverylandco.com</p>
+  <p>© Discovery‑Style Company. All rights reserved.</p>
+</footer>
+
+<script>
+
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    header.className = window.scrollY>50 ? 'solid' : 'transparent';
+  });
+
+  
+  const faders = document.querySelectorAll('.fade');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold:0.3 });
+  faders.forEach(e => observer.observe(e));
+</script>
+
+</body>
+</html>
