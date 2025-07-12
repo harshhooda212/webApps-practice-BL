@@ -1,0 +1,27 @@
+<div class="sidebar" [class.expanded]="isExpanded"
+(mouseenter)="onMouseEnter()" 
+     (mouseleave)="onMouseLeave()">
+  <ul>
+    <li (click)="navigateToNotes()">
+      <img src="assets/images/bulb.svg" alt="Notes" />
+      <span *ngIf="isExpanded">Notes</span>
+    </li>
+    <li (click)="onToggle()">
+      <img src="assets/images/bell.svg" alt="Reminders" />
+      <span *ngIf="isExpanded">Reminders</span>
+    </li>
+    <li (click)="onToggle()">
+      <img src="assets/images/edit.svg" alt="Edit labels" />
+      <span *ngIf="isExpanded">Edit labels</span>
+    </li>
+    <li (click)="navigateTo('archive')">
+      <img src="assets/images/archive.svg" alt="Archive" />
+      <span *ngIf="isExpanded">Archive</span>
+    </li>
+    <li (click)="navigateToBin()">
+  <img src="assets/images/delete.svg" alt="Bin" />
+  <span *ngIf="isExpanded">Bin</span>
+</li>
+
+  </ul>
+</div>

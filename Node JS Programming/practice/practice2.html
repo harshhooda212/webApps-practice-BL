@@ -1,0 +1,38 @@
+<html>
+    <body>
+        <div>
+            <input type="text" id="input" placeholder="task">
+            <button id="addBtn">Add Task</button>
+            <ul id="tasklist"></ul>
+            <p id="error" style="color:red"></p>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script>
+                $(document).ready(function(){
+                    $("#addBtn").on("click",function(){
+                        const value = $.trim($("#input").val());
+
+                        if(value){
+                            const li = $("<li></li>").html(`${value} <button class="deleteBtn">*</button>`);
+                            $("#tasklist").append(li);
+                            $("#input").val("");
+                        }
+
+                         if(!value){
+                    $("#error").text("No task available");
+                }else{
+                    $("#error").text("");
+                    alert("task added successfully");
+                };
+                    });
+                    $("#tasklist").on("click",".deleteBtn",function(){
+$(this).parent().remove();
+const value = $.trim($("#input").val());
+
+               
+                    });
+                });
+                
+            </script>
+        </div>
+    </body>
+</html>

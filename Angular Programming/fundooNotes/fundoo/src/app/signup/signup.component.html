@@ -1,0 +1,86 @@
+
+<div class="signup-page">
+<div class="signup-box">
+  <div class="form-section">
+    <img
+      src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+      class="google-logo"
+      alt="Google logo"
+    />
+    <h2>Create your Google Account</h2>
+
+    <form (ngSubmit)="onSignup()" #signupForm="ngForm">
+      <div class="row">
+        <input
+          type="text"
+          name="firstName"
+          [(ngModel)]="firstName"
+          placeholder="First name"
+          required
+        />
+        <input
+          type="text"
+          name="lastName"
+          [(ngModel)]="lastName"
+          placeholder="Last name"
+          required
+        />
+      </div>
+
+      <div class="row">
+        <input
+          type="text"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="Email"
+          required
+        />
+        <span class="email"></span>
+      </div>
+
+      <p class="hint">You can use letters, numbers & periods</p>
+      <a class="link">Use my current email address instead</a>
+
+      <div class="row">
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Password"
+          required
+        />
+        <input
+          type="password"
+          name="confirmPassword"
+          [(ngModel)]="confirmPassword"
+          placeholder="Confirm"
+          required
+        />
+      </div>
+
+      <p class="hint">Use 8 or more characters with a mix of letters, numbers & symbols</p>
+
+      <div class="actions">
+        <a routerLink="/login" class="link">Sign in instead</a>
+        <button type="submit">Next</button>
+      </div>
+    </form>
+    <div
+  *ngIf="message"
+  [ngClass]="{ 'success-message': !isError, 'error-message': isError }"
+  class="message-box"
+>
+  {{ message }}
+</div>
+
+  </div>
+
+  <div class="image-section">
+    <img
+      src="https://ssl.gstatic.com/accounts/signup/glif/account.svg"
+      alt="signup visual"
+    />
+    <p>One account. All of Google working for you.</p>
+  </div>
+</div>
+</div>

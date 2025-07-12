@@ -1,0 +1,42 @@
+<app-header (toggleSidebar)="toggleSidebar()" (viewToggle)="onViewToggle($event)"></app-header>
+
+<div class="dashboard-container">
+<app-side-bar 
+    [isExpanded]="showSidebar"
+    (toggleSidebar)="toggleSidebar()"
+  ></app-side-bar>
+<div class="note-container">
+  
+
+  
+
+  <div class="archived-notes" [class.list-view]="isListView">
+    <div
+      class="card"
+      *ngFor="let note of notes; let i = index"
+      [ngStyle]="{ 'background-color': note.color }"
+    >
+      <h4>{{ note.title }}</h4>
+      <p>{{ note.content }}</p>
+
+      <div class="icons">
+        <i title="Color palette"
+          ><img src="assets/images/color.svg" alt=""
+        /></i>
+        <i title="Remind me"><img src="assets/images/bulb.svg" alt="" /></i>
+        <i title="Collaborator"
+          ><img src="assets/images/collaborator.svg" alt=""
+        /></i>
+        <i title="Image"><img src="assets/images/image.svg" alt="" /></i>
+       <i title="Unarchive" (click)="unarchiveNote(i)">
+  <img src="assets/images/unarchive.svg" alt="Unarchive" />
+</i>
+
+        <i class="delete-icon" (click)="deleteArchivedNote(i)" title="Delete">
+  <img src="assets/images/delete.svg" alt="Delete" />
+</i>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="image-section">
+    <img src="assets/cart.png" alt="Shopping" />
+    <p>ONLINE BOOK SHOPPING</p>
+  </div>
+
+  <div class="form-section">
+    <div class="tabs">
+      <span [class.active]="showLogin" (click)="showLogin = true">LOGIN</span>
+      <span [class.active]="!showLogin" (click)="showLogin = false">SIGNUP</span>
+    </div>
+
+    <!-- Login Form -->
+   <form *ngIf="showLogin" #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+
+      <label>Email id</label>
+      <input name="email" type="email" [(ngModel)]="loginData.email" required />
+
+      <label>Password</label>
+      <input name="password" type="password" [(ngModel)]="loginData.password" required />
+      <a href="#">Forgot Password?</a>
+
+      <button type="submit">Login</button>
+
+      <div class="or">OR</div>
+      <div class="socials">
+        <button class="facebook">Facebook</button>
+        <button class="google">Google</button>
+      </div>
+      <div *ngIf="loginSuccess" class="success-box">
+  ✅ Login Successful!
+</div>
+
+    </form>
+
+    <!-- Signup Form -->
+    <form *ngIf="!showLogin" #signupForm="ngForm" (ngSubmit)="onSignup(signupForm)">
+
+      <label>Full Name</label>
+      <input name="fullName" [(ngModel)]="signupData.fullName" required />
+
+      <label>Email id</label>
+      <input name="email" type="email" [(ngModel)]="signupData.email" required />
+
+      <label>Password</label>
+      <input name="password" type="password" [(ngModel)]="signupData.password" required />
+
+      <label>Mobile Number</label>
+      <input name="phone" type="text" [(ngModel)]="signupData.phone" required />
+
+      <button type="submit">Signup</button>
+    </form>
+  </div>
+</div>

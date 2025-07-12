@@ -1,0 +1,40 @@
+<!-- note.component.html -->
+ <app-header (toggleSidebar)="toggleSidebar()" ></app-header>
+
+ <div class="note-page">
+  
+  <!-- Sidebar -->
+  <app-sidebar 
+    [isExpanded]="showSidebar"
+    (toggleSidebar)="toggleSidebar()"
+  ></app-sidebar>
+  
+<div class="note-area">
+  <!-- Collapsed View -->
+  <div *ngIf="!isExpanded" class="collapsed-note" (click)="expandNote()">
+    <input type="text" placeholder="Take a note..." readonly />
+  </div>
+
+  <!-- Expanded View -->
+  <div *ngIf="isExpanded" class="expanded-note">
+    <input
+      type="text"
+      [(ngModel)]="note.title"
+      placeholder="Title"
+      class="note-title"
+    />
+    <textarea
+      [(ngModel)]="note.description"
+      placeholder="Take a note..."
+      class="note-description"
+    ></textarea>
+
+    <div class="note-actions">
+      <!-- Icons can go here if needed -->
+      <button (click)="closeNote()">Done</button>
+    </div>
+  </div>
+</div>
+
+</div>
+

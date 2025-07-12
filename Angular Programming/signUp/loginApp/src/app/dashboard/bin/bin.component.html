@@ -1,0 +1,34 @@
+<app-header (toggleSidebar)="toggleSidebar()" (viewToggle)="onViewToggle($event)"></app-header>
+
+<div class="dashboard-container">
+<app-side-bar 
+    [isExpanded]="showSidebar"
+    (toggleSidebar)="toggleSidebar()"
+  ></app-side-bar>
+<div class="note-container">
+  
+
+  
+
+  <div class="saved-notes" [class.list-view]="isListView">
+    <div
+      class="card"
+      *ngFor="let note of deletedNotes; let i = index"
+      [ngStyle]="{ 'background-color': note.color }"
+    >
+      <h4>{{ note.title }}</h4>
+      <p>{{ note.content }}</p>
+
+      <div class="icons">
+        <i (click)="restoreNote(i)" title="Restore">
+            <img src="assets/images/restore.svg" />
+          </i>
+          <i (click)="deleteForever(i)" title="Delete Forever">
+            <img src="assets/images/deleteforever.svg" />
+          </i>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+

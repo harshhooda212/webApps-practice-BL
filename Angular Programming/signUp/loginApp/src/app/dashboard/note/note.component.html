@@ -1,0 +1,105 @@
+<div class="note-container">
+  <!-- Collapsed Note Input -->
+  <div
+    class="note"
+    [class.expanded]="isExpanded"
+    (click)="expandNote()"
+    *ngIf="!isExpanded"
+  >
+    Take a note...
+  </div>
+
+  <!-- Expanded Note Input -->
+  <div
+    class="note expanded"
+    *ngIf="isExpanded"
+    [ngStyle]="{ 'background-color': selectedColor }"
+  >
+    <input
+      type="text"
+      [(ngModel)]="title"
+      placeholder="Title"
+      [ngStyle]="{ 'background-color': selectedColor }"
+    />
+    <textarea
+      [(ngModel)]="content"
+      placeholder="Take a note..."
+      [ngStyle]="{ 'background-color': selectedColor }"
+    ></textarea>
+
+    <!-- Color Options -->
+    <div class="color-options" *ngIf="showColorOptions">
+      <div
+        class="color-circle"
+        *ngFor="let color of [
+          '#ffffff',
+          '#f28b82',
+          '#fbbc04',
+          '#fff475',
+          '#ccff90',
+          '#a7ffeb',
+          '#cbf0f8',
+          '#aecbfa'
+        ]"
+        [style.background-color]="color"
+        (click)="changeColor(color)"
+      ></div>
+    </div>
+
+    <!-- Icons -->
+    <div class="icons">
+      <i title="Text formatting">
+        <img src="assets/images/format.svg" alt="" />
+      </i>
+      <i title="Color palette" (click)="toggleColorOptions()">
+        <img src="assets/images/color.svg" alt="" />
+      </i>
+      <i title="Remind me"><img src="assets/images/bulb.svg" alt="" /></i>
+      <i title="Collaborator">
+        <img src="assets/images/collaborator.svg" alt="" />
+      </i>
+      <i title="Image"><img src="assets/images/image.svg" alt="" /></i>
+      <i title="More"><img src="assets/images/more.svg" alt="" /></i>
+    </div>
+
+    <!-- Done Button -->
+    <button class="close-btn" (click)="closeNote()">Done</button>
+  </div>
+
+  <!-- Display Saved Notes -->
+  <div class="saved-notes" [class.list-view]="isListView">
+    <div
+      class="card"
+      *ngFor="let note of notes"
+      [ngStyle]="{ 'background-color': note.color }"
+    >
+      <h4>{{ note.title }}</h4>
+      <p>{{ note.content }}</p>
+
+      <div class="icons">
+        <i title="Color palette">
+          <img src="assets/images/color.svg" alt="" />
+        </i>
+        <i title="Remind me">
+          <img src="assets/images/bulb.svg" alt="" />
+        </i>
+        <i title="Collaborator">
+          <img src="assets/images/collaborator.svg" alt="" />
+        </i>
+        <i title="Image">
+          <img src="assets/images/image.svg" alt="" />
+        </i>
+        <i title="Archive" (click)="archiveNote(note.id || note._id)">
+          <img src="assets/images/archive.svg" alt="Archive" />
+        </i>
+        <i
+          class="delete-icon"
+          (click)="deleteNote(note.id || note._id)"
+          title="Delete"
+        >
+          <img src="assets/images/delete.svg" alt="" />
+        </i>
+      </div>
+    </div>
+  </div>
+</div>

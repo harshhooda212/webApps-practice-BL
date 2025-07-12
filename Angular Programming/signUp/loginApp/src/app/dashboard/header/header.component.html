@@ -1,0 +1,62 @@
+<header class="header">
+  <div class="left-section">
+    <button title="Main Menu" class="icon-button">
+      <img src="assets/images/sidebar.svg" class="icon-button" alt="Menu" (click)="onToggleSidebar()" title="Toggle Sidebar" />
+    </button>
+
+    <img
+      src="https://www.gstatic.com/images/branding/product/2x/keep_2020q4_48dp.png"
+      class="logo"
+      alt="Fundo Notes"
+    />
+    <span class="title">Fundo Notes</span>
+  </div>
+
+  <div class="search-bar">
+    <img src="assets/images/search.svg" class="search-icon" alt="Search Icon" />
+    <input
+      type="text"
+      placeholder="Search"
+      title="Search your notes"
+      [(ngModel)]="searchText"
+    />
+  </div>
+
+  <div class="right-section">
+    <button title="Refresh Notes" class="icon-button">
+      <img src="assets/images/refresh.svg" alt="Refresh" />
+    </button>
+
+ <button title="Toggle View" class="icon-button" (click)="toggleView()">
+  <img
+    [src]="isListView ? 'assets/images/list.svg' : 'assets/images/grid-view.svg'"
+    alt="View Toggle"
+  />
+</button>
+
+    <button title="Settings" class="icon-button">
+      <img src="assets/images/setting.svg" alt="Settings" />
+    </button>
+
+    <button title="Google Apps" class="icon-button">
+      <img src="assets/images/menu.svg" alt="Apps" />
+    </button>
+
+    <button title="Your Profile" class="profile-pic-button" (click)="toggleProfileMenu()">
+  <img src="assets/images/account.svg" class="profile-pic" alt="Profile" />
+</button>
+
+<div class="account-popup" *ngIf="showProfileMenu">
+  <div class="popup-content">
+    <div *ngIf="loggedInUser?.email" class="initial-circle">
+      {{ getEmailInitial() }}
+    </div>
+
+    <p class="popup-greeting">Hi, {{ loggedInUser?.firstName }}</p>
+    <p class="popup-email">{{ loggedInUser?.email }}</p>
+    <button class="logout-button" (click)="onLogout()">Logout</button>
+  </div>
+</div>
+
+  </div>
+</header>

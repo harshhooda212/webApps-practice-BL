@@ -1,0 +1,116 @@
+/* Center the entire login box */
+.login-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(0, 0%, 95%);
+  margin: auto;
+  
+
+}
+
+/* Main card box */
+.login-card {
+  background-color: white;
+  margin: 20px auto;
+  padding: 40px 30px;
+  width: 400px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Google logo */
+.google-logo {
+  width: 92px;
+  height: 30px;
+  margin-bottom: 30px;
+  display: block;
+}
+
+/* Headings */
+.login-card h2 {
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #5f6368;
+  margin-bottom: 24px;
+}
+
+/* Inputs */
+.login-card input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 1px #1a73e8;
+}
+
+/* Buttons and actions */
+.action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.login-card button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.login-card button:hover {
+  background-color: #155ab6;
+}
+
+.login-card a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Footer note */
+.footer {
+  font-size: 12px;
+  color: #5f6368;
+  margin-top: 24px;
+}
+.message-box {
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+$(document).ready(function(){
+$("#formbody").on("submit",function(e){
+e.preventDefault();
+
+const email = $.trim($("#email").val());
+const name=$.trim($("#name").val());
+
+if(!email || !name){
+$("#errorMsg").text("Both fields are required!");}
+else{
+$("#errorMsg").text("");
+alert("login successfull");}
+});
+});
+</script>
+    </head>
+<body>
+
+<h1 style="background-color: red;">Form </h1>
+<p>Here we are creating a form</p>
+
+<form id="formbody"> 
+
+<label>NAME</label>
+<input type="text" id="name" placeholder="name"><br><br>
+<label>E MAIL</label>
+<input type="text" id="email" placeholder="email">
+<button type="submit">submit</button></form>
+<br><br>
+<input name="harsh" type="radio" id="option" value="submit"><label>SUBMIT</label>
+<input name="harsh" type="radio" id="option" value="rejected">
+<label>NOT SUBMITTED</label>
+
+
+<p id="errorMsg" style="color:red;"></p>
+
+
+
+</body>
+</html>

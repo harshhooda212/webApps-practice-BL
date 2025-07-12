@@ -1,0 +1,47 @@
+<div class="login-wrapper">
+  <div class="login-card">
+    <img
+      src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+      alt="Google"
+      class="google-logo"
+    />
+
+    <h2>Sign in</h2>
+    <p class="subtitle">to continue to MyApp</p>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <input
+        type="text"
+        name="email"
+        [(ngModel)]="email"
+        placeholder="Email or phone"
+        required
+      />
+
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="Enter your password"
+        required
+      />
+
+      <div class="action-row">
+        <a href="#">Forgot password?</a>
+        <button type="submit">Next</button>
+      </div>
+    </form>
+    
+
+    <div class="footer">
+      <p>Not your computer? Use Guest mode to sign in privately.</p>
+      <a href="#">Learn more</a>
+    </div>
+
+    <div class="create-account">
+  <a routerLink="/signup">Create account</a>
+</div>
+
+  </div>
+</div>
+

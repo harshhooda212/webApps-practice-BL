@@ -1,0 +1,16 @@
+<!-- Header -->
+<app-header (toggleSidebar)="toggleSidebar()" ></app-header>
+
+<!-- Layout with sidebar + content -->
+<div class="dashboard-container">
+  
+  <!-- Sidebar -->
+  <app-sidebar 
+    [isExpanded]="showSidebar"
+    (toggleSidebar)="toggleSidebar()"
+  ></app-sidebar>
+
+  
+  
+
+</div>

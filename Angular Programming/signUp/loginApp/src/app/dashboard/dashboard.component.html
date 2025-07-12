@@ -1,0 +1,20 @@
+<!-- Header -->
+<app-header (toggleSidebar)="toggleSidebar()" (viewToggle)="onViewToggle($event)"></app-header>
+
+<!-- Layout with sidebar + content -->
+<div class="dashboard-container">
+  
+  <!-- Sidebar -->
+  <app-side-bar 
+    [isExpanded]="showSidebar"
+    (toggleSidebar)="toggleSidebar()"
+  ></app-side-bar>
+
+  <!-- Main content area -->
+  <div class="main-content">
+    <app-note [isListView]="isListView"></app-note>
+    
+  </div>
+  
+
+</div>
